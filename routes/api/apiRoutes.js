@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const menuController = require("../../controllers/menuController");
 
+router.get("/", (req, res) => {
+  res.send("Hello world");
+});
 // Matches with "/api/menu"
 router.route("/")
   .get(menuController.findAll)

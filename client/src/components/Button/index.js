@@ -2,7 +2,7 @@ import React from "react";
 
 function Button() {
     return (
-<div className="dropdown">
+<div className="dropdown d-inline">
     <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">
       Daypart Menu
     </button>

@@ -2,7 +2,7 @@ import React from "react";
 
 function EditButton() {
     return (
-    <a href="#" class="btn btn-info" 
+    <a href="#" className="btn btn-info" 
     role="button">Edit Time</a>
     )
 }

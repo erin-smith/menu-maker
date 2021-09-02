@@ -2,26 +2,38 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
+    menuId: {
+        type: String,
+        trim: true,
+       unique: true,
+    },
     categories: [{
-        id: {
+        categoryId: {
             type: String,
-            required: true
+            trim: true,
+            unique: true,
+
         },
-        name: {
+        itemName: {
             type: String,
-            required: true
+            trim: true,
+            required: true,
         },
         items: [{
-            id: {
+            itemId: {
                 type: String,
-                required: true
+                trim: true,
+                unique: true,
             },
-            name: {
+            itemName: {
                 type: String,
-                required: true
+                trim: true,
+                required: true,
+                unique: true,
             },
             description: {
                 type: String,
+                trim: true,
                 required: true
             },
             available: {
@@ -30,6 +42,7 @@ const menuSchema = new Schema({
             },
             photo: {
                 type: String,
+                trim: true,
                 required: true
             },
             price: {
@@ -37,12 +50,14 @@ const menuSchema = new Schema({
                 required: true
             },
             modifiers: [{
-                id: {
+                modifierId:{
                     type: String,
-                    required: true
+                    trim: true,
+                    unique: true,
                 },
-                name: {
+                modifierName: {
                     type: String,
+                    trim: true,
                     required: true
                 },
                 price: {
@@ -52,19 +67,23 @@ const menuSchema = new Schema({
             }],
             temperature: {
                 type: String,
+                trim: true,
                 required: false
             },
             taxCategory: {
                 type: String,
+                trim: true,
                 required: true
             },
             dietaryAttributes: {
                 type: String,
+                trim: true,
                 required: false
-            }
+            },
 
-        }]
-    }]
+        }],
+        
+    }], 
 
 });
 
