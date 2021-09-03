@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import Jumbotron from "./components/Jumbotron"
-import Card from './components/Card';
+import Home from "./pages/Home"
 
 function App() {
   return (
-    <div>
-    <Jumbotron/>
-    <Card/>
-    </div>
+   <div>
+   <Home/>
+   </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import CategoryModal from "../CategoryModal";
+import ItemModal from "../ItemModal";
 import {GlobalStyle} from "../globalStyles";
 
 const Container = styled.div`
@@ -21,7 +21,7 @@ font-size: 18px;
 cursor: pointer;
 `;
 
-function CategoryButton() {
+function ItemButton() {
     const [showModal, setShowModal] = useState(false)
 
     const openModal = () => {
@@ -29,10 +29,10 @@ function CategoryButton() {
     }
     return (
     <>
-    <Button onClick={openModal}><i className="fas fa-plus-circle mr-1"/>Add New Category</Button>
-    <CategoryModal showModal={showModal} setShowModal={setShowModal}/>
+    <Button onClick={openModal}><i className="fas fa-plus-circle mr-1"/>Add New Menu Item</Button>
+    <ItemModal showModal={showModal} setShowModal={setShowModal}/>
     <GlobalStyle/>
     </>
     )
 }
-export default CategoryButton;
+export default ItemButton;

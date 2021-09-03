@@ -2,30 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
-    menuId: {
-        type: String,
-        trim: true,
-       unique: true,
-    },
     categories: [{
-        categoryId: {
-            type: String,
-            trim: true,
-            unique: true,
-
-        },
-        itemName: {
-            type: String,
-            trim: true,
-            required: true,
-        },
+        id: { type: String,trim: true, required: true },
+        name: { type: String,trim: true, required:true },
         items: [{
-            itemId: {
+            id: {
                 type: String,
                 trim: true,
-                unique: true,
+                required: true
             },
-            itemName: {
+            name: {
                 type: String,
                 trim: true,
                 required: true,
@@ -50,12 +36,12 @@ const menuSchema = new Schema({
                 required: true
             },
             modifiers: [{
-                modifierId:{
+                id:{
                     type: String,
                     trim: true,
-                    unique: true,
+                    required: true,
                 },
-                modifierName: {
+                name: {
                     type: String,
                     trim: true,
                     required: true
@@ -76,7 +62,7 @@ const menuSchema = new Schema({
                 required: true
             },
             dietaryAttributes: {
-                type: String,
+                type: Array,
                 trim: true,
                 required: false
             },

@@ -3,11 +3,8 @@ const db = require("../models");
 // Defining methods for the menuController
 module.exports = {
   findAll: function(req, res) {
-    db.Menu
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    db.Menu.find({}).then(dbModel => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.Menu
@@ -19,7 +16,7 @@ module.exports = {
     db.Menu
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch((err) => res.status(422).json(err));
   },
   update: function(req, res) {
     db.Menu
@@ -27,10 +24,10 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function(req, res) {
+  deleteOne: function(req, res) {
     db.Menu
       .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
+      .then(dbModel => dbModel.deleteOne())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

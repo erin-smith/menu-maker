@@ -1,19 +1,16 @@
 const router = require("express").Router();
 const menuController = require("../../controllers/menuController");
 
-router.get("/", (req, res) => {
-  res.send("Hello world");
-});
-// Matches with "/api/menu"
+// Matches with "/api/menus"
 router.route("/")
   .get(menuController.findAll)
   .post(menuController.create);
 
-// Matches with "/api/menu/:id"
+// Matches with "/api/menus/:id"
 router
   .route("/:id")
   .get(menuController.findById)
   .put(menuController.update)
-  .delete(menuController.remove);
+  .delete(menuController.deleteOne);
 
 module.exports = router;

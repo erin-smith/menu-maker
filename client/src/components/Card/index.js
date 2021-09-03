@@ -1,9 +1,52 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import API from "../../utils/API"
 import Button from "../Button";
 import EditButton from "../EditButton";
-import CattegoryButton from "../CategoryButton";
+import CategoryButton from "../CategoryButton";
+import ItemButton from "../ItemButton";
+import { List, ListItem } from "../List";
 
-function Card() {
+function Card (){
+// class Card extends React.Component {
+
+//   state = { menus: []};
+
+//   componentDidMount(){
+//     this.loadMenus();
+//   }
+
+//   loadMenus = () => {
+//     fetch("/api/menus")
+//     .then((response) => response.json())
+//     .then((menus) => this.setState({ menus }))
+//     .then((err) => {
+//       console.log(err, "here");
+//     });
+// };
+// render() {
+  // const { menus } = this.state;
+
+  //  // Setting our component's initial state
+   const [menus, setMenus] = useState([])
+ 
+   // Load entrees and store them with menu1
+   useEffect(() => {
+     console.log("fetching");
+     loadMenus()
+   }, [])
+ 
+   function loadMenus() {
+     API.getMenus()
+       .then(res => {
+        console.log(res)
+         setMenus(res.data)
+       }
+       )
+       .catch(err => console.log(err, "Right here Error!!"));
+   };
+ 
+ 
+
     return (
     <div className="container mt-5">
       <div className="card mb-4">
@@ -12,18 +55,29 @@ function Card() {
          <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
         </div>
         <div className="card-body">
-          <ul className="card-text text-left mb-5">Entrees&nbsp;<a><i className="fas fa-plus-circle ml-3"></i></a>
-          <li>Pancakes</li>
-          <li>Crepes</li>
-          </ul>
-          <ul className="card-text text-left">Drinks&nbsp;<a><i className="fas fa-plus-circle ml-3"></i></a>
-          <li>Orange Juice</li>
-          <li>Coffee</li>
-          </ul>
-          <CattegoryButton/>
+        {menus.length ? (
+              <List>
+                {menus.map((menu) => (
+                    <ListItem key={menu._id}>
+                      <a href={"/menus/" + menu._id}>
+                         <p>{menu.categories.items.name} {menu.categories.items.description} {menu.categories.items.photo}</p>
+                        <p>{menu.categories.items.price}</p>
+                      </a>
+                    </ListItem>
+                  ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          <CategoryButton/>
+          <div className="mt-5"/>
+          <container className="mt-5">
+          <ItemButton/>
+          </container>
         </div>
       </div>
     </div>
-       )
-    };
+    );
+    }
+  // };
     export default Card;

@@ -22,23 +22,19 @@ app.use(routes);
 
 // Connect to the Mongo DB
 const uri = process.env.ATLAS_URI;
-mongoose.connect( uri,
-  // process.env.MONGODB_URI || "mongodb://localhost/menu-maker",
-  { useNewUrlParser: true}
-);
+mongoose.connect( uri || "mongodb://localhost/menumakerdb",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  });
+  
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection is a success!")
-})
-
-
-// Send every request to the React app
-// Define any API routes before this runs
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// const connection = mongoose.connection;
+// connection.once('open', () => {
+//   console.log("MongoDB database connection is a success!")
+// })
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
