@@ -3,13 +3,6 @@ import styled from "styled-components";
 import CategoryModal from "../CategoryModal";
 import {GlobalStyle} from "../globalStyles";
 
-const Container = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-`;
-
 const Button = styled.button`
 min-width: 100px;
 padding: 8px 16px;

@@ -2,10 +2,11 @@ import React, {useRef, useEffect, useCallback} from "react";
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import dessert from "../../images/dessert.jpeg";
 
 const Background = styled.div`
-width: 50%;
-height: 50%;
+width: 45%;
+height: 60%;
 background: rgba(0, 0, 0, 0.8);
 position: fixed;
 display: flex;
@@ -26,7 +27,7 @@ const ModalWrapper = styled.div`
 `
 const ModalImg = styled.img`
 width: 100%;
-height: 100%;
+height: 90%;
 border-radius: 10px 0 0 10px;
 background: #000;
 `
@@ -95,7 +96,7 @@ function CategoryModal ({showModal, setShowModal}) {
                 <Background ref={modalRef} onClick={closeModal}>
                     <animated.div style={animation}>
                     <ModalWrapper showModal={showModal}>
-                        <ModalImg src={require('../../assets/images/breakfast7.jpeg')} alt='latte'/>
+                        <ModalImg src={dessert} alt='latte'/>
                     <ModalContent>
                         <h3>Add a New Category</h3>
                         <input></input>

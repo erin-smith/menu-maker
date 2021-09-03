@@ -2,10 +2,11 @@ import React, {useRef, useEffect, useCallback} from "react";
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import pancake from "../../images/pancake.jpeg";
 
 const Background = styled.div`
-width: 50%;
-height: 50%;
+width: 45%;
+height: 60%;
 background: rgba(0, 0, 0, 0.8);
 position: fixed;
 display: flex;
@@ -95,7 +96,7 @@ function ItemModal ({showModal, setShowModal}) {
                 <Background ref={modalRef} onClick={closeModal}>
                     <animated.div style={animation}>
                     <ModalWrapper showModal={showModal}>
-                        <ModalImg/>
+                        <ModalImg src={pancake} alt='pancake'/>
                     <ModalContent>
                         <h3>Add a New Menu Item</h3>
                         <input></input>

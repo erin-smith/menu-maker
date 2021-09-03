@@ -1,49 +1,49 @@
 import React, {useState, useEffect} from "react";
-import API from "../../utils/API"
+// import API from "../../utils/API"
 import Button from "../Button";
 import EditButton from "../EditButton";
 import CategoryButton from "../CategoryButton";
 import ItemButton from "../ItemButton";
 import { List, ListItem } from "../List";
 
-function Card (){
-// class Card extends React.Component {
+// function Card (){
+class Card extends React.Component {
 
-//   state = { menus: []};
+  state = { menus: []};
 
-//   componentDidMount(){
-//     this.loadMenus();
-//   }
+  componentDidMount(){
+    this.loadMenus();
+  }
 
-//   loadMenus = () => {
-//     fetch("/api/menus")
-//     .then((response) => response.json())
-//     .then((menus) => this.setState({ menus }))
-//     .then((err) => {
-//       console.log(err, "here");
-//     });
-// };
-// render() {
-  // const { menus } = this.state;
+  loadMenus = () => {
+    fetch("/api/menus")
+    .then((response) => response.json())
+    .then((menus) => this.setState({ menus }))
+    .then((err) => {
+      console.log(err, "here");
+    });
+};
+render() {
+  const { menus } = this.state;
 
   //  // Setting our component's initial state
-   const [menus, setMenus] = useState([])
+  //  const [menus, setMenus] = useState([])
  
-   // Load entrees and store them with menu1
-   useEffect(() => {
-     console.log("fetching");
-     loadMenus()
-   }, [])
+  //  // Load entrees and store them with menu1
+  //  useEffect(() => {
+  //    console.log("fetching");
+  //    loadMenus()
+  //  }, [])
  
-   function loadMenus() {
-     API.getMenus()
-       .then(res => {
-        console.log(res)
-         setMenus(res.data)
-       }
-       )
-       .catch(err => console.log(err, "Right here Error!!"));
-   };
+  //  function loadMenus() {
+  //    API.getMenus()
+  //      .then(res => {
+  //       console.log(res)
+  //        setMenus(res.data)
+  //      }
+  //      )
+  //      .catch(err => console.log(err, "Right here Error!!"));
+  //  };
  
  
 
@@ -57,7 +57,7 @@ function Card (){
         <div className="card-body">
         {menus.length ? (
               <List>
-                {menus.map((menu) => (
+                {this.state.menus.map((menu) => (
                     <ListItem key={menu._id}>
                       <a href={"/menus/" + menu._id}>
                          <p>{menu.categories.items.name} {menu.categories.items.description} {menu.categories.items.photo}</p>
@@ -71,13 +71,11 @@ function Card (){
             )}
           <CategoryButton/>
           <div className="mt-5"/>
-          <container className="mt-5">
           <ItemButton/>
-          </container>
         </div>
       </div>
     </div>
     );
     }
-  // };
+  };
     export default Card;
