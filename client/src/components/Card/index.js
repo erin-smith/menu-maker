@@ -57,10 +57,10 @@ render() {
         <div className="card-body">
         {menus.length ? (
               <List>
-                {this.state.menus.map((menu) => (
-                    <ListItem key={menu._id}>
-                      <a href={"/menus/" + menu._id}>
-                         <p>{menu.categories.items.name} {menu.categories.items.description} {menu.categories.items.photo}</p>
+                {this.state.menus.map(({_id, menu}) => (
+                    <ListItem key={_id}>
+                      <a href={"/menus/" + _id}>
+                         <p>{menu} {menu.categories.items.description} {menu.categories.items.photo}</p>
                         <p>{menu.categories.items.price}</p>
                       </a>
                     </ListItem>
