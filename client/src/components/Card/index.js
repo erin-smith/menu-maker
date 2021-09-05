@@ -4,7 +4,7 @@ import EditButton from "../EditButton";
 import CategoryButton from "../CategoryButton";
 import ItemButton from "../ItemButton";
 import MenuList from "../MenuList";
-import {Container, Row, Col } from "../Grid";
+import {Container, Row} from "../Grid";
 
 
 function Card (){

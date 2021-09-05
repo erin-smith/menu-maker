@@ -31,7 +31,6 @@ function MenuList () {
           <li key={category.id}>{category.items[0].name} -- {category.items[0].price}
           <p>
                <img src={category.items[0].photo}/></p>
-               {/* <input type="file"/> */}
               <p>{category.items[0].description}</p>
           </li>
           </ul>

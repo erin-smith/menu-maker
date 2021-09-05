@@ -34,7 +34,7 @@ background: #000;
 const ModalContent = styled.div`
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: top;
 align-items: center;
 line-height: 1.8;
 color: #141414;
@@ -98,9 +98,20 @@ function ItemModal ({showModal, setShowModal}) {
                     <ModalWrapper showModal={showModal}>
                         <ModalImg src={pancake} alt='pancake'/>
                     <ModalContent>
-                        <h3>Add a New Menu Item</h3>
-                        <input></input>
-                        <button className="mt-2">Submit</button>
+                        <h5 className="mt-5">Add a New Menu Item</h5>
+            <form className="form-inline" action="/action_page.php">
+                <label forHtml="name">Item Name:</label>
+                <input className="form-control" placeholder="Enter Item Name" id="item"/>
+                <label forHtml="description">Description:</label>
+                 <input className="form-control" placeholder=" Item Description" id="description"/>
+                 <label forHtml="name">Category:</label>
+                <input className="form-control" placeholder="Enter Category" id="item"/>
+                <label forHtml="description">Price of Item:</label>
+                 <input className="form-control"  type="number" placeholder="price" id="price"/>
+                 <label forHtml="photo">Upload a photo:</label>
+                  <input type="file"/> 
+                <button type="submit" className="btn btn-primary mt-3">Submit</button>
+                </form>
                     </ModalContent>
                     <CloseModalButton aria-label='Close Modal' onClick={() => setShowModal
                     (prev => !prev)}/>
@@ -109,7 +120,6 @@ function ItemModal ({showModal, setShowModal}) {
                 </Background>
                 ) : null }
                 </>
-                
             )
         };
 
