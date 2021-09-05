@@ -16,5 +16,8 @@ export default {
   // Saves a book to the database
   saveMenuItem: function(menuData) {
     return axios.post("/api/menus", menuData);
+  },
+  uploadPhoto: function(photo){
+    return axios.post("/api/menus", photo)
   }
 };

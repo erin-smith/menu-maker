@@ -1,33 +1,32 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const menuSchema = new Schema({
+const menuSchema = new Schema(
+    {
+    daypart: String,
     categories: [{
-        id: { type: String },
+        id: String,
         name: { type: String, trim: true, required: true },
         items: [{
-            id: {type: String},
+            id: String,
             name: {type: String, trim: true, required: true, unique: true},
             description: {type: String, trim: true, required: true},
-            available: {type: Boolean, default: false},
+            available: Boolean,
             photo: {type: String, required: true},
             price: {type: Number, required: true},
             modifiers: [{ 
-                id:{type: String },
-                name: {type: String },
-                price: {type: Number }}],
-            temperature: {type: String },
-            taxCategory: {type: String },
-            dietaryAttributes: [{
-                allergen: {
-                    type:String
-                }
-            }],
+                id:String,
+                name:String,
+                price:Number }],
+            temperature: String,
+            taxCategory: String,
+            dietaryAttributes: Array
         }],
         
     }], 
 
-});
+}
+);
 
 
 
