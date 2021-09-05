@@ -14,13 +14,14 @@ mongoose.connect(process.env.ATLAS_URI || "mongodb://localhost/menumakerdb", {
 const menuSeed = [
   {
     daypart: "Breakfast",
+    menuTime: "8am to 11am",
     categories: [
       {
-        id: "cat1",
+        id: "1",
         name: "Sweets",
         items: [
           {
-            id: "Entree1",
+            id: "1",
             name: "Blueberry Protein Pancakes",
             description: "Protein heart-shaped pancakes with fresh blueberries",
             available: true,
@@ -36,15 +37,8 @@ const menuSeed = [
             temperature: false,
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Vegetarian, Gluten-Free"],
-          },
-        ],
-      },
-      {
-        id: "cat1",
-        name: "Sweets",
-        items: [
-          {
-            id: "Entree2",
+          },{
+            id: "2",
             name: "Fruit Tart",
             description:
               "Graham tart filled with pastry cream and topped with fresh fruit",
@@ -61,15 +55,33 @@ const menuSeed = [
             temperature: false,
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Vegetarian"],
-          },
+          },{
+            id: "3",
+            name: "Blueberry Crepes",
+            description:
+              "Crepes filled with pastry cream and topped with blueberry compote",
+            available: false,
+            photo: "https://i.imgur.com/WpvrGg2t.jpg",
+            price: 12.5,
+            modifiers: [
+              {
+                id: "modifier1",
+                name: "Topping",
+                price: 1.5,
+              },
+            ],
+            temperature: false,
+            taxCategory: "Restaurant Food",
+            dietaryAttributes: ["Vegetarian"],
+          }
         ],
       },
       {
-        id: "cat2",
+        id: "2",
         name: "Savory",
         items: [
           {
-            id: "Entree3",
+            id: "1",
             name: "Tomato Quiche",
             description: "Roasted tomato and Spinach quiche with Gruyere",
             available: true,
@@ -89,36 +101,11 @@ const menuSeed = [
         ],
       },
       {
-        id: "cat1",
-        name: "Sweets",
-        items: [
-          {
-            id: "Entree4",
-            name: "Blueberry Crepes",
-            description:
-              "Crepes filled with pastry cream and topped with blueberry compote",
-            available: false,
-            photo: "https://i.imgur.com/WpvrGg2t.jpg",
-            price: 12.5,
-            modifiers: [
-              {
-                id: "modifier1",
-                name: "Topping",
-                price: 1.5,
-              },
-            ],
-            temperature: false,
-            taxCategory: "Restaurant Food",
-            dietaryAttributes: ["Vegetarian"],
-          },
-        ],
-      },
-      {
-        id: "cat3",
+        id: "3",
         name: "Coffee",
         items: [
           {
-            id: "Drink1",
+            id: "1",
             name: "Double shot Latte",
             description: "Whole milk latte with 2 espresso shots",
             available: true,
@@ -134,15 +121,8 @@ const menuSeed = [
             temperature: false,
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Vegetarian"],
-          },
-        ],
-      },
-      {
-        id: "cat3",
-        name: "Coffee",
-        items: [
-          {
-            id: "Drink2",
+          },{
+            id: "2",
             name: "Double Cappuccino",
             description: "Traditional cappuccino with whole milk",
             available: true,
@@ -165,6 +145,7 @@ const menuSeed = [
   },
   {
     daypart: "Lunch",
+    menuTime: "11am to 2pm",
     categories: [
       {
         id: "cat6",
@@ -266,6 +247,7 @@ const menuSeed = [
   },
   {
     daypart: "Dinner",
+    menuTime: "5pm to 11pm",
     categories: [
       {
         id: "cat4",

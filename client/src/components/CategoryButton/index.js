@@ -14,16 +14,17 @@ font-size: 18px;
 cursor: pointer;
 `;
 
-function CategoryButton() {
+function CategoryButton({callMe}) {
     const [showModal, setShowModal] = useState(false)
 
     const openModal = () => {
         setShowModal(prev => !prev)
     }
+
     return (
     <>
     <Button onClick={openModal}><i className="fas fa-plus-circle mr-1"/>Add New Category</Button>
-    <CategoryModal showModal={showModal} setShowModal={setShowModal}/>
+    <CategoryModal showModal={showModal} setShowModal={setShowModal} honza={callMe}/>
     <GlobalStyle/>
     </>
     )

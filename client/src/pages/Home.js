@@ -1,13 +1,13 @@
 
 import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
+import MainCard from "../components/MainCard";
 
 function Home() {
  
     return (
         <div>
             <Jumbotron/>
-            <Card/>
+            <MainCard/>
             {/* <SideBar>
             <form>
               <Input

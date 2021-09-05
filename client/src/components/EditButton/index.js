@@ -2,8 +2,8 @@ import React from "react";
 
 function EditButton() {
     return (
-    <a href="#" className="btn btn-info" 
-    role="button">Edit Time</a>
+    <button className="btn btn-info">
+    Edit Time</button>
     )
 }
 export default EditButton;
