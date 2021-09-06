@@ -1,30 +1,33 @@
 import React, {useEffect, useState} from "react";
-import API from "../../utils/API";
+import Category from "../Category";
+import MenuItem from "../MenuItem";
 
 
-function MenuList ({menus}) {
-   
+function MenuList ({menus, onNewItem, onItemClick}) {
+
   return (
     <div>
     {menus.categories.length ? (
       <div>
-        <h4>Menu Items</h4>
-        {menus.categories.map((category) => (
-          <ul>Category: {category.name}
-            {category.items.length ? (
-              <li key={category.id}>
-                {
-                category.items[0].name} -- {category.items[0].price}
-              <p>
-                  <img src={category.items[0].photo} alt="menu item"/></p>
-                  <p>{category.items[0].description}</p>
-              </li> 
-            ):(<p></p>)}
-          </ul>
+        {
+          menus.categories.map(
+            (category) => (
+              <Category id={category.id} name={category.name} onNewItem={onNewItem}>
+              {category.items.map(
+                (item) => (
+                  <MenuItem id={item.id} 
+                    description={item.description} 
+                    photo={item.photo} 
+                    price={item.price} 
+                    onClick={onItemClick}
+                  >{item.name}</MenuItem>
+                )
+              )}
+          </Category>
         ))}
       </div>
    ) : ( 
-    <h3>No Results to Display</h3>
+    <h3>No categories to display</h3>
   )} 
   </div>
   );

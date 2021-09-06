@@ -62,7 +62,7 @@ const CloseModalButton = styled(MdClose)`
   z-index: 10;
 `;
 
-function ItemModal({ showModal, setShowModal }) {
+function ItemModal({ showModal, setShowModal, onNewItem}) {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -87,6 +87,11 @@ function ItemModal({ showModal, setShowModal }) {
     },
     [setShowModal, showModal]
   );
+
+  function onSubmit(){
+    let newItem = {};
+    onNewItem(newItem);
+  }
 
   useEffect(() => {
     document.addEventListener("keydown", keyPress);
@@ -178,7 +183,7 @@ function ItemModal({ showModal, setShowModal }) {
                     id="exampleFormControlFile1"
                   />
 
-                  <button type="submit" className="btn btn-primary mt-3">
+                  <button type="submit" className="btn btn-primary mt-3" onClick={onSubmit}>
                     Submit
                   </button>
                 </form>

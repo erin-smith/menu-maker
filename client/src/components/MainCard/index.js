@@ -6,7 +6,8 @@ import ItemButton from "../ItemButton";
 import MenuList from "../MenuList";
 import {Container, Row} from "../Grid";
 import API from "../../utils/API";
-
+import Category from "../Category"
+import MenuItem from "../MenuItem"
 
 
 function MainCard (){
@@ -68,23 +69,32 @@ function MainCard (){
       loadMenu(newMenu)
    }
 
+   function onItemClick(){
+    console.log("item clicked")
+   }
+
+   function onNewItem(categoryId, itemData){
+    console.log("new item", categoryId, itemData)
+   }
+
     return (
       <Container>
         <div className="container mt-5">
           <div className="card mb-4">
             <div className="card-header">
               <MenuSelectButton onSelectionChange={onMenuSelectChange} selectedMenu={selectedMenuId} menuList={menuList}/>
+              <CategoryButton callMe={onNewCategory}/>
             <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
             </div>
             <div className="card-body">
               <Row>
             <div className="col-md-6">
-            <MenuList menus={selectedMenuData}/>
+              <h4>Menu Items</h4>
+              <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick}/>
             </div>
             <div className="col-md-6">
-              <CategoryButton callMe={onNewCategory}/>
               <div className="mt-5"/>
-              <ItemButton/>
+              {/* <ItemButton/> */}
               </div>
               </Row>
             </div>
