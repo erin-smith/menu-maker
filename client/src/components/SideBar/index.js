@@ -1,71 +1,97 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import { OffCanvas, OffCanvasMenu, OffCanvasBody} from "react-offcanvas";
 import styles from "./style.css"
 
-export default class SideBar extends Component {
-  componentWillMount() {
-    // sets the initial state
-    this.setState({
-      isMenuOpened: false
-    });
-  }
 
-  render() {
+
+function SideBar ({show, itemData, onSubmit, onCancel}){
+
+
+    const initalData = {
+        itemNameInput:itemData.name,
+        itemDescriptionInput:itemData.description,
+        itemPriceInput:itemData.price
+    }
+
+    const [myState, setMyState] = useState(initalData);
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        console.log("input change", name, value); 
+        setMyState({ ...myState, [name]: value });
+    }
+    function handleSubmit(){
+        console.log(myState);
+        onSubmit(myState);
+    }
+
+    function handleCancel(){
+        console.log("cancel")
+        setMyState(initalData);
+        onCancel();
+    }
+
     return (
       <OffCanvas
         width={600}
         transitionDuration={300}
         effect={"overlay"}
-        isMenuOpened={this.state.isMenuOpened}
+        isMenuOpened={show}
         position={"right"}
       >
-        <OffCanvasBody
-        className={styles.bodyClass}
-          style={{ fontSize: "20px" }}
-        >
-          <p>
-            <a href="#" onClick={this.handleClick.bind(this)}>
-              Click here
-            </a>{" "}
-            to toggle the menu.
-          </p>
-        </OffCanvasBody>
         <OffCanvasMenu 
         className={styles.menuClass}
         style={{ fontSize: "30px", backgroundColor: "white", height: "100vh" }}>
+            <div className="container">
           <h2 className="mt-3 mr-2">Edit a Menu Item</h2>
-                <form className="form-inline" action="/action_page.php">
+                {/* <form className="form" action="#"> */}
+                    <div class="form-group">
                   <label forHtml="name">Item Name:&nbsp;</label>
                   <input
+                    type = "text"
                     className="form-control"
                     placeholder="Enter Item Name"
-                    id="item"
+                    onChange={handleInputChange}
+                    name="itemNameInput"
+                    value={myState["itemNameInput"]}
                   />
+                  </div>
+                  <div class="form-group">
                   <label forHtml="description">Description:&nbsp;</label>
                   <input
+                    type="text"
                     className="form-control"
                     placeholder=" Item Description"
-                    id="description"
+                    onChange={handleInputChange}
+                    name="itemDescriptionInput"
+                    value={myState["itemDescriptionInput"]}
                   />
+                  </div>
                   <label forHtml="name">Category:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder="Enter Category"
-                    id="item"
+                    onChange={handleInputChange}
+                    name="itemCategoryInput"
+                    value={myState["itemCategoryInput"]}
                   />
                   <label forHtml="description">Item Price:&nbsp;</label>
                   <input
                     className="form-control"
                     type="number"
                     placeholder="price"
-                    id="price"
+                    onChange={handleInputChange}
+                    name="itemPriceInput"
+                    value={myState["itemPriceInput"]}
                   />
                   <label forHtml="description">Modifiers:&nbsp;</label>
                   <input
                     className="form-control"
                     type="modifiers"
                     placeholder="protien"
-                    id="modifier"
+                    onChange={handleInputChange}
+                    name="itemModifiersInput"
+                    value={myState["itemModifiersInput"]}
                   />
 
                   <div className="form-check form-check-inline">
@@ -111,20 +137,18 @@ export default class SideBar extends Component {
                     id="exampleFormControlFile1"
                   />
 
-                  <button type="submit" className="btn btn-primary mt-3">
+                <button className="btn btn-primary mt-3" onClick={handleSubmit}>
                     Submit
-                  </button>
-                </form>
-              <a href="#" onClick={this.handleClick.bind(this)}>
-                Close
-              </a>
+                    </button>
+                  <button className="btn btn-primary mt-3" onClick={handleCancel}>
+                    Cancel
+                    </button>
+                  {/* 
+                </form> */}
+                </div>
         </OffCanvasMenu>
       </OffCanvas>
     );
   }
-
-  handleClick() {
-    // toggles the menu opened state
-    this.setState({ isMenuOpened: !this.state.isMenuOpened });
-  }
-}
+export default SideBar;
+  

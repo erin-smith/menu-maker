@@ -15,12 +15,9 @@ function MenuList ({menus, onNewItem, onItemClick}) {
               <Category id={category.id} name={category.name} onNewItem={onNewItem}>
               {category.items.map(
                 (item) => (
-                  <MenuItem id={item.id} 
-                    description={item.description} 
-                    photo={item.photo} 
-                    price={item.price} 
+                  <MenuItem data={item}
                     onClick={onItemClick}
-                  >{item.name}</MenuItem>
+                  />
                 )
               )}
           </Category>

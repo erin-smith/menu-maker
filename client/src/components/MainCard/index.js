@@ -5,7 +5,6 @@ import MenuList from "../MenuList";
 import {Container, Row} from "../Grid";
 import API from "../../utils/API";
 import CategoryModal from "../CategoryModal"
-import SideBar from "../SideBar";
 
 
 
@@ -94,7 +93,6 @@ function MainCard (){
             </div>
             <div className="col-md-6">
               <div className="mt-5"/>
-              <SideBar/>
               </div>
              
               </Row>
