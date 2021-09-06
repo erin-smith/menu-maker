@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import API from "../../utils/API";
+import React from "react";
 import ItemButton from "../ItemButton"
 
 function Category ({children, id, name, onNewItem}) {

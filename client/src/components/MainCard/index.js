@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react";
 import MenuSelectButton from "../MenuSelectButton";
 import EditButton from "../EditButton";
-import CategoryButton from "../CategoryButton";
-import ItemButton from "../ItemButton";
 import MenuList from "../MenuList";
 import {Container, Row} from "../Grid";
 import API from "../../utils/API";
-import Category from "../Category"
-import MenuItem from "../MenuItem"
+import CategoryModal from "../CategoryModal"
+import SideBar from "../SideBar";
+
 
 
 function MainCard (){
@@ -77,13 +76,13 @@ function MainCard (){
     console.log("new item", categoryId, itemData)
    }
 
+
     return (
       <Container>
         <div className="container mt-5">
           <div className="card mb-4">
             <div className="card-header">
               <MenuSelectButton onSelectionChange={onMenuSelectChange} selectedMenu={selectedMenuId} menuList={menuList}/>
-              <CategoryButton callMe={onNewCategory}/>
             <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
             </div>
             <div className="card-body">
@@ -91,15 +90,20 @@ function MainCard (){
             <div className="col-md-6">
               <h4>Menu Items</h4>
               <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick}/>
+              <CategoryModal onNewCategory={onNewCategory}/>
             </div>
             <div className="col-md-6">
               <div className="mt-5"/>
-              {/* <ItemButton/> */}
+              <SideBar/>
               </div>
+             
               </Row>
             </div>
+           
           </div>
+       
         </div>
+        
       </Container>
       );
     };

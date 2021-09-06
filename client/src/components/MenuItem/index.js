@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import API from "../../utils/API";
+import React from "react";
 
 function MenuItem ({children, id, price, description, photo}) {
   return (
