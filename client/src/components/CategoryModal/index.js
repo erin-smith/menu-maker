@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import dessert from "../../images/dessert.jpeg";
+import "./style.css";
 
 function CategoryModal({ showModal, setShowModal, onNewCategory}) {
   const [formObject, setFormObject] = useState({});
@@ -27,8 +29,15 @@ function CategoryModal({ showModal, setShowModal, onNewCategory}) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    let x = document.getElementById("category").value;
+  if (x == "") {
+    alert("Please enter a new category");
+    return false;
+  }
+    else{
     onNewCategory(formObject.name);
     setShow(false);
+    }
   }
 
   const [show, setShow] = useState(false);
@@ -43,27 +52,35 @@ function CategoryModal({ showModal, setShowModal, onNewCategory}) {
       </Button>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header  id="close" closeButton>
           <Modal.Title>Add a New Category</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            <div className="row">
+                <div className="col-md-6">
+                    <img src={dessert} width="180px" height="240px"/>
+                    </div>
+                    <div className="col-md-6">
+             <label forhtml="category"><h5><strong>Enter Category Name:&nbsp;</strong></h5></label>
             <input
                 className="form-control"
                 onChange={handleInputChange}
                 value={formObject.categories}
-                name="name"
-                placeholder="Category (e.g. Dessert)"
+                name="newCategory"
+                placeholder="(e.g. Dessert)"
                 id="category"
             />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+            <div className="container-fluid m-2 p-3">
+            <Button  className="d-inline" variant="warning" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleFormSubmit}>
+          <Button className="d-inline ml-4" variant="success" onClick={handleFormSubmit}>
             Create
           </Button>
-        </Modal.Footer>
+          </div>
+            </div>
+            </div>
+        </Modal.Body>
       </Modal>
     </>
   );

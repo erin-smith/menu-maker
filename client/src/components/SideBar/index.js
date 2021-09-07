@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { OffCanvas, OffCanvasMenu } from "react-offcanvas";
 import DietaryButton from "../DietaryButton";
+import ImageUpload from "../ImageUpload";
 import TemperatureButton from "../TemperatureButton";
 import styles from "./style.css";
 
@@ -46,11 +47,11 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
       transitionDuration={300}
       effect={"overlay"}
       isMenuOpened={show}
-      position={"sticky right"}
+      position={"right"}
     >
       <OffCanvasMenu
         className={styles.menuClass}
-        style={{ fontSize: "18px", backgroundColor: "white", height: "100vh" }}
+        style={{ zIndex: 1, fontSize: "18px", fontWeight:"900", backgroundColor:"#aceaeb", height: "100vh", fontFamily:"inherit", position:"fixed"}}
       >
         <div className="container">
           <h2 className="mt-3 mr-2 text-center">
@@ -166,14 +167,14 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
             />
 
             <div className="form-group">
-
-              <label forhtml="exampleFormControlFile1">Upload photo:</label>
+<ImageUpload/>
+              {/* {/* <label forhtml="exampleFormControlFile1">Upload photo:</label>
 
               <input
                 type="file"
                 className="form-control-file"
                 id="exampleFormControlFile1"
-              />
+              /> */}
             </div>
           </div>
           <div className="form-group">
@@ -184,7 +185,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               Submit
             </button>
             <button
-              className="btn btn-danger mt-3 ml-5 d-inline"
+              className="btn btn-warning mt-3 ml-5 d-inline"
               onClick={handleCancel}
             >
               Cancel
