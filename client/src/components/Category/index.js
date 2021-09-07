@@ -1,5 +1,5 @@
 import React from "react";
-import ItemButton from "../ItemButton"
+import ItemModal from "../ItemModal"
 
 function Category ({children, id, name, onNewItem}) {
    
@@ -9,7 +9,7 @@ function handleNewItem(data){
 
   return (
     <div>
-      <h5><i><b>{name}:</b></i><ItemButton onNewItem={handleNewItem}/></h5>
+      <h5><i><b className="mr-4">{name}:</b></i><ItemModal onNewItem={handleNewItem}/></h5>
       <ul>
         {children}
       </ul>

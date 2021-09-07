@@ -77,19 +77,20 @@ function MainCard (){
 
 
     return (
-        <div className="container mt-5">
+        <div className="container-fluid mt-5">
           <div className="card mb-4">
             <div className="card-header pt-4">
               <MenuSelectButton onSelectionChange={onMenuSelectChange} selectedMenu={selectedMenuId} menuList={menuList}/>
             <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
             </div>
             <div className="card-body">
-              <Row>
-              <div className="container">
+              <div className="container-fluid">
+               <div className= "col-md-8">
               <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick}/>
               <CategoryModal onNewCategory={onNewCategory}/>
+             </div>
               </div>
-              </Row>
+              
               
               </div>
         </div>

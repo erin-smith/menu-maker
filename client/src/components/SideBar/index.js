@@ -46,7 +46,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
       transitionDuration={300}
       effect={"overlay"}
       isMenuOpened={show}
-      position={"right"}
+      position={"sticky right"}
     >
       <OffCanvasMenu
         className={styles.menuClass}
