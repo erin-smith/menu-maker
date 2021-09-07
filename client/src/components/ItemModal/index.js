@@ -44,8 +44,8 @@ const ModalContent = styled.div`
   }
 
   button {
-    padding: 10px 24px;
-    background: #141414;
+    padding: 8px 10px;
+    background: #79d9e8;
     color: #fff;
     border: none;
   }
@@ -105,8 +105,8 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
             <ModalWrapper showModal={showModal}>
               <ModalImg src={pancake} alt="pancake" />
               <ModalContent>
-                <h5 className="mt-3 mr-2">Add a New Menu Item</h5>
-                <form className="form-inline" action="/action_page.php">
+                <h5 className="mt-3 mr-2">Menu Item</h5>
+                <form className="form-inline" action="#">
                   <label forHtml="name">Item Name:&nbsp;</label>
                   <input
                     className="form-control"

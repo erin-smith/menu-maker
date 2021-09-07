@@ -9,7 +9,7 @@ function handleNewItem(data){
 
   return (
     <div>
-      <h3>{name}: <ItemButton onNewItem={handleNewItem}/></h3>
+      <h5><i><b>{name}:</b></i><ItemButton onNewItem={handleNewItem}/></h5>
       <ul>
         {children}
       </ul>

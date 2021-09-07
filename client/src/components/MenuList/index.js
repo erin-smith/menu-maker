@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Category from "../Category";
 import MenuItem from "../MenuItem";
 
@@ -16,6 +16,7 @@ function MenuList ({menus, onNewItem, onItemClick}) {
               {category.items.map(
                 (item) => (
                   <MenuItem data={item}
+                    category={category}
                     onClick={onItemClick}
                   />
                 )

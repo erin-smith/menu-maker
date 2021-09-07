@@ -77,32 +77,23 @@ function MainCard (){
 
 
     return (
-      <Container>
         <div className="container mt-5">
           <div className="card mb-4">
-            <div className="card-header">
+            <div className="card-header pt-4">
               <MenuSelectButton onSelectionChange={onMenuSelectChange} selectedMenu={selectedMenuId} menuList={menuList}/>
             <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
             </div>
             <div className="card-body">
               <Row>
-            <div className="col-md-6">
-              <h4>Menu Items</h4>
+              <div className="container">
               <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick}/>
               <CategoryModal onNewCategory={onNewCategory}/>
-            </div>
-            <div className="col-md-6">
-              <div className="mt-5"/>
               </div>
-             
               </Row>
-            </div>
-           
-          </div>
-       
+              
+              </div>
         </div>
-        
-      </Container>
+        </div>
       );
     };
     export default MainCard;

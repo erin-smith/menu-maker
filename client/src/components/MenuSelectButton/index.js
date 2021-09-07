@@ -29,14 +29,14 @@ function MenuSelectButton({menuList, onSelectionChange, selectedMenu}) {
           title="Select Menu"
           variant="info"
           id="dropdown-menu-right"
-          className = "d-inline"
+          className = "d-inline btn-lg"
           onSelect={handleSelect}
         >
           {menuList.map((i) =>
               <Dropdown.Item key={i.id} eventKey={i.id}>{i.daypart}</Dropdown.Item>
           )}
         </DropdownButton>
-        <h3 className="d-inline"> &nbsp;{daypart}</h3>
+        <h3 className="d-inline ml-4"> &nbsp;{daypart} Menu</h3>
       </>
     )
 };

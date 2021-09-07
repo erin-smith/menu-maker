@@ -5,12 +5,12 @@ import {GlobalStyle} from "../globalStyles";
 
 const Button = styled.button`
 min-width: 100px;
-padding: 8px 16px;
+padding: 8px 8px;
 border-radius: 4px;
 border: none;
-background: #141414;
+background: #17a2b8;
 color: #fff;
-font-size: 18px;
+font-size: 16px;
 cursor: pointer;
 `;
 
@@ -22,8 +22,10 @@ function ItemButton() {
     }
     return (
     <>
-    <Button onClick={openModal}><i className="fas fa-plus-circle mr-1"/>Add New Menu Item</Button>
+    <div className="d-inline ml-4">
+    <Button onClick={openModal}><i className="fas fa-plus-circle mr-1"/>Add Item</Button>
     <ItemModal showModal={showModal} setShowModal={setShowModal}/>
+    </div>
     <GlobalStyle/>
     </>
     )
