@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const menuSchema = new Schema(
     {
     daypart: String,
+    menuTime: { type: String, trim: true, required: true },
     categories: [{
         id: String,
         name: { type: String, trim: true, required: true },

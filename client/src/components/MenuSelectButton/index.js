@@ -10,7 +10,6 @@ function MenuSelectButton({menuList, onSelectionChange, selectedMenu}) {
   // const [menuChange, setMenuChange]= useState([]);
 
   const handleSelect=(e)=>{
-    console.log(e);
     setValue(e);
     onSelectionChange(e);
     const x = menuList.find(element => element.id === e);
@@ -19,8 +18,6 @@ function MenuSelectButton({menuList, onSelectionChange, selectedMenu}) {
       setDaypart(x.daypart);
     }
   }
- 
-  console.log(menuList)
 
     return (
       <>

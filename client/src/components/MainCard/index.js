@@ -9,7 +9,7 @@ import CategoryModal from "../CategoryModal"
 
 function MainCard (){
 
-  const [selectedMenuData, setSelectedMenuData] = useState({categories:[],daypart:""});
+  const [selectedMenuData, setSelectedMenuData] = useState({categories:[], menuTime:"", daypart:""});
   const [selectedMenuId, setSelectedMenuId] = useState();
   const [menuList, setMenuList] = useState([]);
  
@@ -31,15 +31,15 @@ function MainCard (){
    }, [])
  
   function selectMenu(id) {
-    setSelectedMenuId(id);
     loadMenu(id);
+    setSelectedMenuId(id);
   };
 
   function loadMenu(id){
     console.log("loading", id);
     API.getMenu(id)
       .then(res => {
-        console.log(res)
+        console.log("menu loaded",res)
         setSelectedMenuData(res.data)
       })
     .catch(err => console.log(err, "Right here Error!!"));
@@ -86,13 +86,33 @@ function MainCard (){
     console.log("new item", categoryId, itemData)
    }
 
+   function onTimeChange(newTime){
+      setSelectedMenuData((oldMenu)=>
+      {
+        let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
+        updatedMenu.menuTime = newTime;
+        console.log("new menu time here:",updatedMenu)
+        API.updateMenu(selectedMenuId, updatedMenu)
+            .then(() => console.log("updated time",newTime))
+            .catch((err) => console.log(err));
+        return updatedMenu;
+      } )
+   }
 
     return (
         <div className="container-fluid mt-5">
           <div className="card mb-4">
             <div className="card-header pt-4">
+              <div className="row">
+                <div className="col">
               <MenuSelectButton onSelectionChange={onMenuSelectChange} selectedMenu={selectedMenuId} menuList={menuList}/>
-            <p className="float-right d-inline">"Served Everyday: 6am - 11am" &nbsp; <span className = "d-inline"><EditButton/></span></p>
+              </div>
+              <div className="col">
+              {selectedMenuId ? (
+                <EditButton onTimeChange={onTimeChange} timeData={selectedMenuData.menuTime} className="d-inline float-right"/>
+              ):(<div></div>)}
+              </div>
+              </div>
             </div>
             <div className="card-body">
               <div className="container-fluid">
