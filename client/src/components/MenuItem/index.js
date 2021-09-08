@@ -18,7 +18,6 @@ function MenuItem ({data, category, onClick, onItemUpdate}) {
   }
 
   function onSubmit(newItemData){
-    console.log("item edited ", newItemData)
     setSideBarVisible(false);
     onItemUpdate(newItemData, category);
   }

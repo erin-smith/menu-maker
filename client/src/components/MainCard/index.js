@@ -36,11 +36,11 @@ function MainCard (){
   };
 
   function loadMenu(id){
-    console.log("loading", id);
+    console.log("loading menu", id);
     API.getMenu(id)
       .then(res => {
-        console.log("menu loaded",res)
         setSelectedMenuData(res.data)
+        console.log("menu data loaded")
       })
     .catch(err => console.log(err, "Right here Error!!"));
   }
@@ -81,21 +81,18 @@ function MainCard (){
    }
 
    function onItemClick(){
-    console.log("item clicked")
+    
    }
 
    function onNewItem(categoryId, itemData){
-    console.log("new item", categoryId, itemData)
     setSelectedMenuData((oldMenu)=>
     {
       let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
       const cat = updatedMenu.categories.find(x=> x.id ===categoryId);
       cat.items.push(itemData);
-      
-      console.log("new menu!",updatedMenu);
 
       API.updateMenu(selectedMenuId, updatedMenu)
-          .then(() => console.log("updated item", itemData.name))
+          .then(() => console.log("Item added: ", itemData.name))
           .catch((err) => console.log(err));
       return updatedMenu;
     } )
@@ -106,7 +103,7 @@ function MainCard (){
       {
         let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
         updatedMenu.menuTime = newTime;
-        console.log("new menu time here:",updatedMenu)
+        
         API.updateMenu(selectedMenuId, updatedMenu)
             .then(() => console.log("updated time",newTime))
             .catch((err) => console.log(err));

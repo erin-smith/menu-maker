@@ -10,8 +10,6 @@ function TemperatureButton({temperature, onTemperatureChange}){
         cold:inactive
     }
 
-    console.log("temp", temperature)
-
     let initialState = JSON.parse(JSON.stringify(allInactive));
     initialState[temperature] = active;
 

@@ -22,10 +22,7 @@ function EditButton({onTimeChange, timeData}) {
         setIsEditing(true);
         setCurrentTime(timeData);
     }
-
-    console.log("time", currentTime)
-    console.log("input:",timeData)
-
+    
     return (
     <>    
     { isEditing ? (

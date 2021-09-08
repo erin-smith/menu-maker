@@ -12,12 +12,14 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
 
   const [myState, setMyState] = useState({
     available:false,
+    id:Date.now(),
     dietaryAttributes:["Vegan"],
     modifiers:[{
       id:"1",
       name:"test",
       price:1.5
-    }]
+    }],
+    image:"https://via.placeholder.com/160"
   });
 
   function handleInputChange(event) {
@@ -46,6 +48,7 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
   function onSubmit(){
     console.log(myState)
     onNewItem(myState);
+    handleClose();
   }
 
   useEffect(() => {
