@@ -86,6 +86,19 @@ function MainCard (){
 
    function onNewItem(categoryId, itemData){
     console.log("new item", categoryId, itemData)
+    setSelectedMenuData((oldMenu)=>
+    {
+      let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
+      const cat = updatedMenu.categories.find(x=> x.id ===categoryId);
+      cat.items.push(itemData);
+      
+      console.log("new menu!",updatedMenu);
+
+      API.updateMenu(selectedMenuId, updatedMenu)
+          .then(() => console.log("updated item", itemData.name))
+          .catch((err) => console.log(err));
+      return updatedMenu;
+    } )
    }
 
    function onTimeChange(newTime){

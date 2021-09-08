@@ -8,40 +8,65 @@ import ImageUpload from "../ImageUpload";
 
 function ItemModal({ showModal, setShowModal, onNewItem}) {
 
-    const [name, setName]= useState("");
-    const [description, setDescription]= useState("");
-    const [category, setCategory]= useState("");
-    const [price, setPrice]= useState("");
-    const [modifiers, setModifiers]= useState("");
-    const [temperature, setTemperature] = useState("");
-    const [dietaryAttributes, setDietaryAttributes]= useState("");
-    const [photo, setPhoto] = useState("");
+
+    // const [name, setName]= useState("");
+    // const [description, setDescription]= useState("");
+    // const [category, setCategory]= useState("");
+    // const [price, setPrice]= useState("");
+    // const [modifiers, setModifiers]= useState("");
+    // const [temperature, setTemperature] = useState("");
+    // const [dietaryAttributes, setDietaryAttributes]= useState("");
+    // const [photo, setPhoto] = useState("");
 
     const modalRef = useRef();
 
-    const onChangeFile = e => {
-        setPhoto(e.target.files[0]);
+    // const onChangeFile = e => {
+    //     setPhoto(e.target.files[0]);
+    // }
+
+    // const closeModal = (e) => {
+    //     if (modalRef.current === e.target) {
+    //         setShowModal(false);
+    //     }
+    // };
+
+    // const changeOnClick = (e) => {
+    //     e.preventDefault();
+
+    //     const formData = new FormData();
+
+    //     formData.append("name", name);
+    //     formData.append("description", description);
+    //     formData.append("category", category);
+    //     formData.append("price", price);
+    //     formData.append("modifiers", modifiers);
+    //     formData.append("temperature", temperature);
+    //     formData.append("dietaryAttributes", dietaryAttributes);
+    //     formData.append("photo", photo);
+    // };
+
+    const [myState, setMyState] = useState({
+      available:false,
+      dietaryAttributes:["Vegan"],
+      modifiers:[{
+        id:"1",
+        name:"test",
+        price:1.5
+      }]
+    });
+
+    function handleInputChange(event) {
+      let { name, value } = event.target;
+      setMyState({ ...myState, [name]: value });
     }
 
-    const closeModal = (e) => {
-        if (modalRef.current === e.target) {
-            setShowModal(false);
-        }
-    };
-    const changeOnClick = (e) => {
-        e.preventDefault();
+  function onTemperatureChange(value) {
+    setMyState({ ...myState, ["temperature"]: value });
+  }
 
-        const formData = new FormData();
-
-        formData.append("name", name);
-        formData.append("description", description);
-        formData.append("category", category);
-        formData.append("price", price);
-        formData.append("modifiers", modifiers);
-        formData.append("temperature", temperature);
-        formData.append("dietaryAttributes", dietaryAttributes);
-        formData.append("photo", photo);
-    };
+  function onImageChanged(newImage){
+    setMyState({ ...myState, ["image"]: newImage });
+  }
 
 
   const keyPress = useCallback(
@@ -54,8 +79,8 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
   );
 
   function onSubmit(){
-    let newItem = {};
-    onNewItem(newItem);
+    console.log(myState)
+    onNewItem(myState);
   }
 
   useEffect(() => {
@@ -64,7 +89,7 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
   }, [keyPress]);
 
   const [show, setShow] = useState(false);
-  const [inputImageValue, setInputImageValue] = useState();
+  // const [inputImageValue, setInputImageValue] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -80,63 +105,58 @@ return (
           <Modal.Title>Add a New Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-                <form className="form-group" onSubmit={changeOnClick} encType="multipart/form-data">
-                  <label forhtml="name">Item Name:&nbsp;</label>
+                <form className="form-group" encType="multipart/form-data">
+                  <label htmlFor="name">Item Name:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder="Enter Item Name"
                     id="item"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    name="name"
+                    value={myState["name"]}
+                    onChange={handleInputChange}
                   />
                   <label forhtml="description">Description:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder=" Item Description"
                     id="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    type="text"
+                    name="description"
+                    value={myState["description"]}
+                    onChange={handleInputChange}
                   />
-                  <label forhtml="name">Category:&nbsp;</label>
-                  <input
-                    className="form-control"
-                    placeholder="Enter Category"
-                    id="item"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                  <label forhtml="description">Item Price:&nbsp;</label>
+                  <label htmlFor="description">Item Price:&nbsp;</label>
                   <input
                     className="form-control"
                     type="number"
                     placeholder="price"
-                    id="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
+                    name="price"
+                    value={myState["price"]}
+                    onChange={handleInputChange}
                   />
 
-             <label forhtml="modifiers">Modifiers:&nbsp;</label>
+                  <label forhtml="taxCategory">Tax Category:&nbsp;</label>
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="protein"
-                    id="modifier"
-                    value={modifiers}
-                    onChange={(e) => setModifiers(e.target.value)}
+                    placeholder="tax category"
+                    name="taxCategory"
+                    value={myState["taxCategory"]}
+                    onChange={handleInputChange}
                   />
                   <div className="form-group mt-2">
                 <label forhtml="temperature">Temperature:&nbsp;</label>
-                  <TemperatureButton value={temperature}
-                    onChange={(e) => setTemperature(e.target.value)}/>
+                  <TemperatureButton
+                    name="temperature"
+                    onTemperatureChange={onTemperatureChange}/>
                  </div>
                 <div className="form-group mt-2">
                 <label forhtml="dietary">Dietary Attributes:&nbsp;</label>
-                <DietaryButton value={dietaryAttributes}
-                    onChange={(e) => setDietaryAttributes(e.target.value)}/>
+                <DietaryButton/>
                   </div>
 
-                 <ImageUpload value={photo}
-                    onChange={(e) => setPhoto(e.target.value)}/>
+                  <ImageUpload data={myState["image"]} onImageChanged={onImageChanged}/>
 
                 </form>
         </Modal.Body>
