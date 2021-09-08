@@ -14,10 +14,14 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
   const [myState, setMyState] = useState(initalData);
 
   function handleInputChange(event) {
-    let { name, value } = event.target;
+    let { name, value, checked } = event.target;
     if(name === "dietaryAttributes"){
-        value = value.split("");
+      value = value.split("");
+    }    
+    if(name === "available"){
+      value = checked;
     }
+    console.log(event);
     setMyState({ ...myState, [name]: value });
   }
 
@@ -30,6 +34,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
   }
 
   function handleSubmit() {
+    console.log(myState);
     onSubmit(myState);
   }
 
@@ -72,8 +77,12 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
                 className="form-check-input"
                 type="checkbox"
                 id="gridCheck"
+                name="available"
+                defaultChecked={myState["available"]}
+                onChange={handleInputChange}
               />
-              <label className="form-check-label bold" forhtml="gridCheck"><strong>
+              <label 
+                className="form-check-label bold" forhtml="gridCheck"><strong>
                 Item Available</strong>
               </label>
             </div>

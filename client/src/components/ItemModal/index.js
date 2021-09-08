@@ -61,7 +61,7 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
     
-return (
+  return (
     <>
       <Button variant= "info" id="my" onClick={handleShow}>
       <i className="fas fa-plus-circle mr-1"/>Add Item

@@ -18,7 +18,7 @@ function MainCard (){
      console.log("fetching");
      API.getMenus()
      .then(res => {
-       console.log("db data:",res)
+       //console.log("db data:",res)
        setMenuList(res.data.map((x)=>{
          return {id:x._id, daypart:x.daypart}
        }));

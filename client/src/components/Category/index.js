@@ -3,9 +3,9 @@ import ItemModal from "../ItemModal"
 
 function Category ({children, id, name, onNewItem}) {
    
-function handleNewItem(data){
-  onNewItem(id, data);
-}
+  function handleNewItem(data){
+    onNewItem(id, data);
+  }
 
   return (
     <div>

@@ -2,8 +2,6 @@ import React from "react";
 
 function DietaryButton({data, onChange}){
 
-
-
     return(
         <>
             <div className="form-check form-check-inline">
