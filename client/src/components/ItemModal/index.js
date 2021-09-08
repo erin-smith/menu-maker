@@ -8,57 +8,22 @@ import ImageUpload from "../ImageUpload";
 
 function ItemModal({ showModal, setShowModal, onNewItem}) {
 
+  const modalRef = useRef();
 
-    // const [name, setName]= useState("");
-    // const [description, setDescription]= useState("");
-    // const [category, setCategory]= useState("");
-    // const [price, setPrice]= useState("");
-    // const [modifiers, setModifiers]= useState("");
-    // const [temperature, setTemperature] = useState("");
-    // const [dietaryAttributes, setDietaryAttributes]= useState("");
-    // const [photo, setPhoto] = useState("");
+  const [myState, setMyState] = useState({
+    available:false,
+    dietaryAttributes:["Vegan"],
+    modifiers:[{
+      id:"1",
+      name:"test",
+      price:1.5
+    }]
+  });
 
-    const modalRef = useRef();
-
-    // const onChangeFile = e => {
-    //     setPhoto(e.target.files[0]);
-    // }
-
-    // const closeModal = (e) => {
-    //     if (modalRef.current === e.target) {
-    //         setShowModal(false);
-    //     }
-    // };
-
-    // const changeOnClick = (e) => {
-    //     e.preventDefault();
-
-    //     const formData = new FormData();
-
-    //     formData.append("name", name);
-    //     formData.append("description", description);
-    //     formData.append("category", category);
-    //     formData.append("price", price);
-    //     formData.append("modifiers", modifiers);
-    //     formData.append("temperature", temperature);
-    //     formData.append("dietaryAttributes", dietaryAttributes);
-    //     formData.append("photo", photo);
-    // };
-
-    const [myState, setMyState] = useState({
-      available:false,
-      dietaryAttributes:["Vegan"],
-      modifiers:[{
-        id:"1",
-        name:"test",
-        price:1.5
-      }]
-    });
-
-    function handleInputChange(event) {
-      let { name, value } = event.target;
-      setMyState({ ...myState, [name]: value });
-    }
+  function handleInputChange(event) {
+    let { name, value } = event.target;
+    setMyState({ ...myState, [name]: value });
+  }
 
   function onTemperatureChange(value) {
     setMyState({ ...myState, ["temperature"]: value });
@@ -89,7 +54,6 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
   }, [keyPress]);
 
   const [show, setShow] = useState(false);
-  // const [inputImageValue, setInputImageValue] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -113,17 +77,17 @@ return (
                     id="item"
                     type="text"
                     name="name"
-                    value={myState["name"]}
+                    value={myState["name"] || ""}
                     onChange={handleInputChange}
                   />
-                  <label forhtml="description">Description:&nbsp;</label>
+                  <label htmlFor="description">Description:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder=" Item Description"
                     id="description"
                     type="text"
                     name="description"
-                    value={myState["description"]}
+                    value={myState["description"] || ""}
                     onChange={handleInputChange}
                   />
                   <label htmlFor="description">Item Price:&nbsp;</label>
@@ -132,27 +96,27 @@ return (
                     type="number"
                     placeholder="price"
                     name="price"
-                    value={myState["price"]}
+                    value={myState["price"] || ""}
                     onChange={handleInputChange}
                   />
 
-                  <label forhtml="taxCategory">Tax Category:&nbsp;</label>
+                  <label htmlFor="taxCategory">Tax Category:&nbsp;</label>
                   <input
                     className="form-control"
                     type="text"
                     placeholder="tax category"
                     name="taxCategory"
-                    value={myState["taxCategory"]}
+                    value={myState["taxCategory"] || ""}
                     onChange={handleInputChange}
                   />
                   <div className="form-group mt-2">
-                <label forhtml="temperature">Temperature:&nbsp;</label>
+                <label htmlFor="temperature">Temperature:&nbsp;</label>
                   <TemperatureButton
                     name="temperature"
                     onTemperatureChange={onTemperatureChange}/>
                  </div>
                 <div className="form-group mt-2">
-                <label forhtml="dietary">Dietary Attributes:&nbsp;</label>
+                <label htmlFor="dietary">Dietary Attributes:&nbsp;</label>
                 <DietaryButton/>
                   </div>
 

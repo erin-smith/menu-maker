@@ -137,8 +137,8 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               type="temperature"
               placeholder="spicy"
               onTemperatureChange={onTemperatureChange}
-              name="itemTemperatureInput"
-              temperature={myState["itemTemperatureInput"]}
+              name="temperature"
+              temperature={myState["temperature"]}
             />
           </div>
           <div className="form-group">
