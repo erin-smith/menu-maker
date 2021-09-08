@@ -27,7 +27,7 @@ mongoose.connect( uri || "mongodb://localhost/menumakerdb",
   })
   .then(() => {
     console.log("Connected to the database!");
-  })
+    })
   .catch (err => {
     console.log("cannot connect to database!", err);
     process.exit();

@@ -61,7 +61,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
             <u>Edit a Menu Item</u>
           </h2>
           <div className="form-group">
-            <label forhtml="name">Item Name:&nbsp;</label>
+            <label htmlFor="name">Item Name:&nbsp;</label>
             <input
               type="text"
               className="form-control"
@@ -82,13 +82,13 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
                 onChange={handleInputChange}
               />
               <label 
-                className="form-check-label bold" forhtml="gridCheck"><strong>
+                className="form-check-label bold" htmlFor="gridCheck"><strong>
                 Item Available</strong>
               </label>
             </div>
           </div>
           <div className="form-group">
-            <label forhtml="description">Description:&nbsp;</label>
+            <label htmlFor="description">Description:&nbsp;</label>
 
             <input
               type="text"
@@ -101,7 +101,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label forhtml="category">Category:&nbsp;</label>
+            <label htmlFor="category">Category:&nbsp;</label>
 
             <input
               type="text"
@@ -114,7 +114,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label forhtml="price">Item Price:&nbsp;</label>
+            <label htmlFor="price">Item Price:&nbsp;</label>
 
             <input
               className="form-control"
@@ -127,7 +127,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label forhtml="modifier">Modifiers:&nbsp;</label>
+            <label htmlFor="modifier">Modifiers:&nbsp;</label>
 
             <input
               className="form-control"
@@ -139,7 +139,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
             />
           </div>
           <div className="form-group">
-            <label forhtml="modifier">Temperature:&nbsp;</label>
+            <label htmlFor="modifier">Temperature:&nbsp;</label>
 
            <TemperatureButton
               className="form-control"
@@ -151,7 +151,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
             />
           </div>
           <div className="form-group">
-            <label forhtml="modifier">Tax Category:&nbsp;</label>
+            <label htmlFor="modifier">Tax Category:&nbsp;</label>
 
             <input
               className="form-control"
@@ -164,7 +164,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
           </div>
 
           <div className="form-group">
-            <label forhtml="dietary">Dietary Attributes:&nbsp;</label>
+            <label htmlFor="dietary">Dietary Attributes:&nbsp;</label>
             <DietaryButton
               className="form-control"
               placeholder="e.g. vegan"
