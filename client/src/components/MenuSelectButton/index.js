@@ -22,7 +22,7 @@ function MenuSelectButton({menuList, onSelectionChange, selectedMenu}) {
     return (
       <>
         <DropdownButton
-          inline
+          inline="true"
           title="Select Menu"
           variant="info"
           id="dropdown-menu-right"

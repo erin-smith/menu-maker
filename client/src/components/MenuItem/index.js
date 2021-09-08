@@ -41,6 +41,7 @@ function MenuItem ({data, category, onClick, onItemUpdate}) {
                     height="160px"
                     className="d-inline"
                     id="Img"
+                    alt={data.name}
                 />
             ):(
                 <div><h2>no image</h2></div>

@@ -3,7 +3,7 @@ import dessert from "../../images/breakfast4.png";
 
 function ImageUpload({data, onImageChanged}) {
 
-    const [imgUrl, setImgUrl]= useState("");
+    //const [imgUrl, setImgUrl]= useState("");
     const [imgData, setImgData] = useState();
     
     function onImageChange(e){
@@ -22,14 +22,14 @@ function ImageUpload({data, onImageChanged}) {
         reader.readAsDataURL(file);                                              
     } 
 
-    function handleInputChange(event) {
-        const { name, value } = event.target;
-        setImgUrl(value);
-      }
+    // function handleInputChange(event) {
+    //     const { name, value } = event.target;
+    //     setImgUrl(value);
+    //   }
 
-    function onLoadFromUrl(){
-        console.log("loading ", imgUrl);
-    }
+    // function onLoadFromUrl(){
+    //     console.log("loading ", imgUrl);
+    // }
 
     return (
     <div className="container">
@@ -43,6 +43,7 @@ function ImageUpload({data, onImageChanged}) {
                     height="160px"
                     className="d-inline"
                     id="Img"
+                    alt="thumbnail"
                 />
             ):(
                 <img
@@ -51,6 +52,7 @@ function ImageUpload({data, onImageChanged}) {
                     height="160px"
                     className="d-inline"
                     id="Img"
+                    alt="thumbnail"
                 />
             )}
         </div>

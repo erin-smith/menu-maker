@@ -11,7 +11,7 @@ function DietaryButton({data, onChange}){
                 <label className="form-check-label" forhtml="inlineCheckbox1">Vegan</label>
             </div>
             <div className="form-check form-check-inline">
-                <input className="form-check-input" checked="true" type="checkbox" id="inlineCheckbox2" value="option2"/>
+                <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"/>
                 <label className="form-check-label" forhtml="inlineCheckbox2">Vegetarian</label>
             </div>
             <div className="form-check form-check-inline">

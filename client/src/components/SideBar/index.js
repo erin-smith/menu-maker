@@ -98,7 +98,7 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               type="text"
               className="form-control"
               placeholder="Select Category"
-              readonly
+              readOnly
               name="itemCategoryInput"
               value={myState["itemCategoryInput"]}
             />

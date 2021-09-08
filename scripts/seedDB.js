@@ -148,7 +148,7 @@ const menuSeed = [
     menuTime: "11am to 2pm",
     categories: [
       {
-        id: "cat6",
+        id: "1",
         name: "Sushi",
         items: [
           {
@@ -173,7 +173,7 @@ const menuSeed = [
         ],
       },
       {
-        id: "cat4",
+        id: "2",
         name: "Fish",
         items: [
           {
@@ -193,12 +193,6 @@ const menuSeed = [
             temperature: "hot",
             taxCategory: "Restaurant Food",
           },
-        ],
-      },
-      {
-        id: "cat4",
-        name: "Fish",
-        items: [
           {
             id: "Entree3",
             name: "Seared Scallops",
@@ -220,7 +214,7 @@ const menuSeed = [
         ],
       },
       {
-        id: "cat5",
+        id: "4",
         name: "Salads",
         items: [
           {
@@ -250,7 +244,7 @@ const menuSeed = [
     menuTime: "5pm to 11pm",
     categories: [
       {
-        id: "cat4",
+        id: "1",
         name: "Fish",
         items: [
           {
@@ -271,12 +265,6 @@ const menuSeed = [
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Gluten-free"],
           },
-        ],
-      },
-      {
-        id: "cat6",
-        name: "Sushi",
-        items: [
           {
             id: "Entree2",
             name: "Sushi nigiri",
@@ -294,12 +282,6 @@ const menuSeed = [
             temperature: "cold",
             taxCategory: "Restaurant Food",
           },
-        ],
-      },
-      {
-        id: "cat4",
-        name: "Fish",
-        items: [
           {
             id: "Entree3",
             name: "Lobster Tail",
@@ -321,7 +303,7 @@ const menuSeed = [
         ],
       },
       {
-        id: "cat7",
+        id: "4",
         name: "Cocktails",
         items: [
           {
@@ -342,12 +324,6 @@ const menuSeed = [
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Gluten-Free"],
           },
-        ],
-      },
-      {
-        id: "cat7",
-        name: "Cocktails",
-        items: [
           {
             id: "Drink2",
             name: "Mint Julep",
@@ -366,12 +342,6 @@ const menuSeed = [
             taxCategory: "Restaurant Food",
             dietaryAttributes: ["Gluten-Free"],
           },
-        ],
-      },
-      {
-        id: "cat7",
-        name: "Cocktails",
-        items: [
           {
             id: "Drink3",
             name: "Piña Colada",

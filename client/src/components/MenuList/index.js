@@ -11,10 +11,11 @@ function MenuList ({menus, onNewItem, onItemClick, onItemUpdate}) {
         {
           menus.categories.map(
             (category) => (
-              <Category id={category.id} name={category.name} onNewItem={onNewItem}>
+              <Category key={category.id} id={category.id} name={category.name} onNewItem={onNewItem}>
               {category.items.map(
                 (item) => (
-                  <MenuItem data={item}
+                  <MenuItem key={category.id+item.id}
+                    data={item}
                     category={category}
                     onClick={onItemClick}
                     onItemUpdate={onItemUpdate}

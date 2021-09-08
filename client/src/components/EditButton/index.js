@@ -6,7 +6,7 @@ function EditButton({onTimeChange, timeData}) {
     const [isEditing, setIsEditing] = useState(false);
 
     function changeTime(event){
-        let { name, value } = event.target;
+        let { value } = event.target;
         setCurrentTime(value);
     }
     function onSave(){
@@ -35,7 +35,7 @@ function EditButton({onTimeChange, timeData}) {
                     value={currentTime}
                     onChange={changeTime} 
                     name="time" 
-                    class="form-control" 
+                    className="form-control" 
                     placeholder="Served Daily: 6am-11am" 
                     id="ex3" 
                     type="text"/>
@@ -53,9 +53,9 @@ function EditButton({onTimeChange, timeData}) {
                 <input 
                     value={timeData}
                     name="time" 
-                    class="form-control" 
+                    className="form-control" 
                     placeholder="no time specified" 
-                    readonly
+                    readOnly
                     id="ex3" 
                     type="text"/>
             </div>
