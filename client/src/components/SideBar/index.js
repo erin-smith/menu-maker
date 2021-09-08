@@ -7,31 +7,29 @@ import styles from "./style.css";
 
 function SideBar({ show, itemData, onSubmit, onCancel }) {
   const initalData = {
-    itemNameInput: itemData.name,
-    itemDescriptionInput: itemData.description,
-    itemPriceInput: itemData.price,
-    itemCategoryInput: itemData.category.name,
-    itemTaxCategoryInput: itemData.taxCategory,
-    itemDietaryAttributesInput: itemData.dietaryAttributes.join(", "),
-    itemTemperatureInput: itemData.temperature
+    ...itemData,
+    itemCategoryInput: itemData.category.name
   };
-
-  console.log("input:",initalData)
 
   const [myState, setMyState] = useState(initalData);
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    console.log("input change", name, value);
+    let { name, value } = event.target;
+    if(name === "dietaryAttributes"){
+        value = value.split("");
+    }
     setMyState({ ...myState, [name]: value });
   }
 
   function onTemperatureChange(value) {
-    setMyState({ ...myState, ["itemTemperatureInput"]: value });
+      setMyState({ ...myState, ["temperature"]: value });
+  }
+
+  function onImageChanged(newImage){
+    setMyState({ ...myState, ["image"]: newImage });
   }
 
   function handleSubmit() {
-    console.log(myState);
     onSubmit(myState);
   }
 
@@ -64,8 +62,8 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               className="form-control"
               placeholder="Enter Item Name"
               onChange={handleInputChange}
-              name="itemNameInput"
-              value={myState["itemNameInput"]}
+              name="name"
+              value={myState["name"]}
             />
           </div>
           <div className="form-group">
@@ -88,8 +86,8 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               className="form-control"
               placeholder="Item Description"
               onChange={handleInputChange}
-              name="itemDescriptionInput"
-              value={myState["itemDescriptionInput"]}
+              name="description"
+              value={myState["description"]}
             />
           </div>
 
@@ -114,8 +112,8 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               type="number"
               placeholder="price"
               onChange={handleInputChange}
-              name="itemPriceInput"
-              value={myState["itemPriceInput"]}
+              name="price"
+              value={myState["price"]}
             />
           </div>
 
@@ -151,8 +149,8 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               type="tax category"
               placeholder="Restaurant Food"
               onChange={handleInputChange}
-              name="itemTaxCategoryInput"
-              value={myState["itemTaxCategoryInput"]}
+              name="taxCategory"
+              value={myState["taxCategory"]}
             />
           </div>
 
@@ -162,19 +160,12 @@ function SideBar({ show, itemData, onSubmit, onCancel }) {
               className="form-control"
               placeholder="e.g. vegan"
               onChange={handleInputChange}
-              name="itemDietaryAttributesInput"
-              value={myState["itemDietaryAttributesInput"]}
+              name="dietaryAttributes"
+              value={myState["dietaryAttributes"]}
             />
 
             <div className="form-group">
-<ImageUpload/>
-              {/* {/* <label forhtml="exampleFormControlFile1">Upload photo:</label>
-
-              <input
-                type="file"
-                className="form-control-file"
-                id="exampleFormControlFile1"
-              /> */}
+                <ImageUpload data={myState["image"]} onImageChanged={onImageChanged}/>
             </div>
           </div>
           <div className="form-group">

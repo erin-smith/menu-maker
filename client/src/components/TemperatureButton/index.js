@@ -12,7 +12,6 @@ function TemperatureButton({temperature, onTemperatureChange}){
 
     let initialState = JSON.parse(JSON.stringify(allInactive));
     initialState[temperature] = active;
-    console.log("initial state is", initialState)
 
     const [myTemperature, setMyTemperature] = useState(temperature);
     const [myState, setMyState] = useState(initialState);

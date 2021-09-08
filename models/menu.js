@@ -12,7 +12,7 @@ const menuSchema = new Schema(
             name: {type: String, trim: true, required: true, unique: true},
             description: {type: String, trim: true, required: true},
             available: Boolean,
-            photo: {type: String, required: true},
+            image: {type: String},
             price: {type: Number, required: true},
             modifiers: [{ 
                 id:String,

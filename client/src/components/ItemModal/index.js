@@ -7,13 +7,42 @@ import ImageUpload from "../ImageUpload";
 
 
 function ItemModal({ showModal, setShowModal, onNewItem}) {
-  const modalRef = useRef();
 
-  const closeModal = (e) => {
-    if (modalRef.current === e.target) {
-      setShowModal(false);
+    const [name, setName]= useState("");
+    const [description, setDescription]= useState("");
+    const [category, setCategory]= useState("");
+    const [price, setPrice]= useState("");
+    const [modifiers, setModifiers]= useState("");
+    const [temperature, setTemperature] = useState("");
+    const [dietaryAttributes, setDietaryAttributes]= useState("");
+    const [photo, setPhoto] = useState("");
+
+    const modalRef = useRef();
+
+    const onChangeFile = e => {
+        setPhoto(e.target.files[0]);
     }
-  };
+
+    const closeModal = (e) => {
+        if (modalRef.current === e.target) {
+            setShowModal(false);
+        }
+    };
+    const changeOnClick = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("price", price);
+        formData.append("modifiers", modifiers);
+        formData.append("temperature", temperature);
+        formData.append("dietaryAttributes", dietaryAttributes);
+        formData.append("photo", photo);
+    };
+
 
   const keyPress = useCallback(
     (e) => {
@@ -39,14 +68,6 @@ function ItemModal({ showModal, setShowModal, onNewItem}) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
-
-//   document.getElementById("Img").onClick = handleImageChange();
-       
-//   function handleImageChange(e) {
-//     setInputImageValue({inputImageValue: e.target.value
-//               })
-//             }
     
 return (
     <>
@@ -59,24 +80,30 @@ return (
           <Modal.Title>Add a New Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-                <form className="form-group" action="#">
+                <form className="form-group" onSubmit={changeOnClick} encType="multipart/form-data">
                   <label forhtml="name">Item Name:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder="Enter Item Name"
                     id="item"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <label forhtml="description">Description:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder=" Item Description"
                     id="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                   />
                   <label forhtml="name">Category:&nbsp;</label>
                   <input
                     className="form-control"
                     placeholder="Enter Category"
                     id="item"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                   />
                   <label forhtml="description">Item Price:&nbsp;</label>
                   <input
@@ -84,6 +111,8 @@ return (
                     type="number"
                     placeholder="price"
                     id="price"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
                   />
 
              <label forhtml="modifiers">Modifiers:&nbsp;</label>
@@ -92,17 +121,22 @@ return (
                     type="text"
                     placeholder="protein"
                     id="modifier"
+                    value={modifiers}
+                    onChange={(e) => setModifiers(e.target.value)}
                   />
                   <div className="form-group mt-2">
                 <label forhtml="temperature">Temperature:&nbsp;</label>
-                  <TemperatureButton/>
+                  <TemperatureButton value={temperature}
+                    onChange={(e) => setTemperature(e.target.value)}/>
                  </div>
                 <div className="form-group mt-2">
                 <label forhtml="dietary">Dietary Attributes:&nbsp;</label>
-                <DietaryButton/>
+                <DietaryButton value={dietaryAttributes}
+                    onChange={(e) => setDietaryAttributes(e.target.value)}/>
                   </div>
 
-                 <ImageUpload/>
+                 <ImageUpload value={photo}
+                    onChange={(e) => setPhoto(e.target.value)}/>
 
                 </form>
         </Modal.Body>

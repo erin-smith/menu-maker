@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import MenuSelectButton from "../MenuSelectButton";
 import EditButton from "../EditButton";
 import MenuList from "../MenuList";
-import {Container, Row} from "../Grid";
 import API from "../../utils/API";
 import CategoryModal from "../CategoryModal"
 
@@ -19,7 +18,7 @@ function MainCard (){
      console.log("fetching");
      API.getMenus()
      .then(res => {
-       console.log(res)
+       console.log("db data:",res)
        setMenuList(res.data.map((x)=>{
          return {id:x._id, daypart:x.daypart}
        }));
@@ -32,7 +31,6 @@ function MainCard (){
    }, [])
  
   function selectMenu(id) {
-    console.log("selecting",id)
     setSelectedMenuId(id);
     loadMenu(id);
   };
@@ -48,20 +46,33 @@ function MainCard (){
   }
 
    function onNewCategory(name){
-     console.log("new cat:",name);
-
         setSelectedMenuData((oldMenu)=>
         {
           let newCat = {id:Date.now(), name:name, items:[]}
-          let updatedMenu = {categories:oldMenu.categories, daypart:oldMenu.daypart};
+          let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
           updatedMenu.categories.push(newCat);
           API.updateMenu(selectedMenuId, updatedMenu)
-              .then(() => console.log("menu updated", updatedMenu))
+              .then(() => console.log("new category added", name))
               .catch((err) => console.log(err));
-          
           return updatedMenu;
         } )
    }
+
+   function onItemUpdate(itemData, category){
+      setSelectedMenuData((oldMenu)=>
+      {
+        let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
+        const cat = updatedMenu.categories.find(x=> x.id ===category.id);
+        const i = cat.items.findIndex(x => x.id === itemData.id);
+        cat.items[i] = itemData;
+        
+        API.updateMenu(selectedMenuId, updatedMenu)
+            .then(() => console.log("updated item", itemData.name))
+            .catch((err) => console.log(err));
+        return updatedMenu;
+      } )
+   }
+
    function onMenuSelectChange(newMenu){
       console.log("menu selected", newMenu)
       loadMenu(newMenu)
@@ -86,7 +97,7 @@ function MainCard (){
             <div className="card-body">
               <div className="container-fluid">
                <div className= "col-md-8">
-              <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick}/>
+              <MenuList menus={selectedMenuData} onNewItem={onNewItem} onItemClick={onItemClick} onItemUpdate={onItemUpdate}/>
               <CategoryModal onNewCategory={onNewCategory}/>
              </div>
               </div>

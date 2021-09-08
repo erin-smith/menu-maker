@@ -3,8 +3,7 @@ import Category from "../Category";
 import MenuItem from "../MenuItem";
 
 
-function MenuList ({menus, onNewItem, onItemClick}) {
-
+function MenuList ({menus, onNewItem, onItemClick, onItemUpdate}) {
   return (
     <div>
     {menus.categories.length ? (
@@ -18,6 +17,7 @@ function MenuList ({menus, onNewItem, onItemClick}) {
                   <MenuItem data={item}
                     category={category}
                     onClick={onItemClick}
+                    onItemUpdate={onItemUpdate}
                   />
                 )
               )}

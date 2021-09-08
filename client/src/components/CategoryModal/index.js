@@ -27,18 +27,17 @@ function CategoryModal({ showModal, setShowModal, onNewCategory}) {
     setFormObject({ ...formObject, [name]: value });
   }
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    let x = document.getElementById("category").value;
-  if (x == "") {
-    alert("Please enter a new category");
-    return false;
-  }
-    else{
-    onNewCategory(formObject.name);
-    setShow(false);
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        let x = document.getElementById("category").value;
+        if (x == "") {
+            alert("Please enter a new category");
+        }
+        else{
+            onNewCategory(formObject.newCategory);
+            setShow(false);
+        }
     }
-  }
 
   const [show, setShow] = useState(false);
 
