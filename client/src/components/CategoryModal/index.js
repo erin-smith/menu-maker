@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import dessert from "../../images/dessert.jpeg";
+import dessert from "../../images/dessert.png";
 import "./style.css";
 
 function CategoryModal({ showModal, setShowModal, onNewCategory}) {

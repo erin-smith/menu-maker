@@ -24,9 +24,9 @@ function MenuList ({menus, onNewItem, onItemClick, onItemUpdate}) {
           </Category>
         ))}
       </div>
-   ) : ( 
-    <h3>No categories to display</h3>
-  )} 
+    ) : ( 
+      <h3>No categories to display</h3>
+    )} 
   </div>
   );
 }

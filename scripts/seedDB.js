@@ -25,7 +25,7 @@ const menuSeed = [
             name: "Blueberry Protein Pancakes",
             description: "Protein heart-shaped pancakes with fresh blueberries",
             available: true,
-            photo: "https://i.imgur.com/uRpW4bft.jpg",
+            image: "https://i.imgur.com/uRpW4bft.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -43,7 +43,7 @@ const menuSeed = [
             description:
               "Graham tart filled with pastry cream and topped with fresh fruit",
             available: true,
-            photo: "https://i.imgur.com/eyOMWrWt.jpg",
+            image: "https://i.imgur.com/eyOMWrWt.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -61,7 +61,7 @@ const menuSeed = [
             description:
               "Crepes filled with pastry cream and topped with blueberry compote",
             available: false,
-            photo: "https://i.imgur.com/WpvrGg2t.jpg",
+            image: "https://i.imgur.com/WpvrGg2t.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -85,7 +85,7 @@ const menuSeed = [
             name: "Tomato Quiche",
             description: "Roasted tomato and Spinach quiche with Gruyere",
             available: true,
-            photo: "https://i.imgur.com/2AjvGRet.jpg",
+            image: "https://i.imgur.com/2AjvGRet.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -109,7 +109,7 @@ const menuSeed = [
             name: "Double shot Latte",
             description: "Whole milk latte with 2 espresso shots",
             available: true,
-            photo: "https://i.imgur.com/6dn6rWnt.jpg",
+            image: "https://i.imgur.com/6dn6rWnt.jpg",
             price: 4.5,
             modifiers: [
               {
@@ -126,7 +126,7 @@ const menuSeed = [
             name: "Double Cappuccino",
             description: "Traditional cappuccino with whole milk",
             available: true,
-            photo: "https://i.imgur.com/3eTVCK0t.jpg",
+            image: "https://i.imgur.com/3eTVCK0t.jpg",
             price: 3.5,
             modifiers: [
               {
@@ -157,7 +157,7 @@ const menuSeed = [
             description:
               "Traditional Japanese lunchbox with an array of today's fresh fish",
             available: false,
-            photo: "https://i.imgur.com/1Nr2w2ct.jpg",
+            image: "https://i.imgur.com/1Nr2w2ct.jpg",
             price: 22.5,
             modifiers: [
               {
@@ -181,7 +181,7 @@ const menuSeed = [
             name: "Fish and Chips",
             description: "Beer Battered Cod with thick cut seasoned fries",
             available: false,
-            photo: "https://i.imgur.com/gC1rV0jt.jpg",
+            image: "https://i.imgur.com/gC1rV0jt.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -204,7 +204,7 @@ const menuSeed = [
             name: "Seared Scallops",
             description: "Seared Scallops with a lemon butter cream sauce",
             available: false,
-            photo: "https://i.imgur.com/w8kBNxTt.jpg",
+            image: "https://i.imgur.com/w8kBNxTt.jpg",
             price: 14.5,
             modifiers: [
               {
@@ -228,7 +228,7 @@ const menuSeed = [
             name: "Radish Arugula Salad",
             description: "Radish arugula salad with caviar pearls",
             available: false,
-            photo: "https://i.imgur.com/bB3M4Fnt.jpg",
+            image: "https://i.imgur.com/bB3M4Fnt.jpg",
             price: 12.5,
             modifiers: [
               {
@@ -258,7 +258,7 @@ const menuSeed = [
             name: "Mediterranean Tilapia Bake",
             description: "Family-Style Mediterranean Tilapia",
             available: false,
-            photo: "https://i.imgur.com/m4g1L66t.jpg",
+            image: "https://i.imgur.com/m4g1L66t.jpg",
             price: 22.5,
             modifiers: [
               {
@@ -282,7 +282,7 @@ const menuSeed = [
             name: "Sushi nigiri",
             description: "4 types of Sushi Nigiri (today's catch)",
             available: false,
-            photo: "https://i.imgur.com/AOEv6HKt.jpg",
+            image: "https://i.imgur.com/AOEv6HKt.jpg",
             price: 18.5,
             modifiers: [
               {
@@ -305,7 +305,7 @@ const menuSeed = [
             name: "Lobster Tail",
             description: "Two whole lobster tails poached in our famous sauce",
             available: false,
-            photo: "https://i.imgur.com/0fTDtXqt.jpg",
+            image: "https://i.imgur.com/0fTDtXqt.jpg",
             price: 23.5,
             modifiers: [
               {
@@ -329,7 +329,7 @@ const menuSeed = [
             name: "Whisky Sour Lemonade",
             description: "Our Modern twist on a traditional whiskey sour",
             available: false,
-            photo: "https://i.imgur.com/lTWFNc2t.jpg",
+            image: "https://i.imgur.com/lTWFNc2t.jpg",
             price: 7,
             modifiers: [
               {
@@ -353,7 +353,7 @@ const menuSeed = [
             name: "Mint Julep",
             description: "Mint Julep with sparkling mineral and fresh mint",
             available: false,
-            photo: "https://i.imgur.com/SMWigPat.jpg",
+            image: "https://i.imgur.com/SMWigPat.jpg",
             price: 7,
             modifiers: [
               {
@@ -377,7 +377,7 @@ const menuSeed = [
             name: "Piña Colada",
             description: "Fluffy fresh take on a piña colada",
             available: false,
-            photo: "https://i.imgur.com/7BFM1hit.jpg",
+            image: "https://i.imgur.com/7BFM1hit.jpg",
             price: 9,
             modifiers: [
               {

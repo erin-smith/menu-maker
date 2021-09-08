@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import dessert from "../../images/breakfast4.jpeg";
+import dessert from "../../images/breakfast4.png";
 
 function ImageUpload({data, onImageChanged}) {
 
