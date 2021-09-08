@@ -1,7 +1,7 @@
 # Menu Maker 
 
 ## Description
-  An Interactive Menu Maker Dashboard app that allows the user to view, update, edit and create menus for their restaurant.  The app displays scrollable menus with buttons for adding, editing, uploading pictures and changing Serving hours.    
+  An Interactive Menu Maker Dashboard app that allows the user to view, update, edit and create menus for their restaurant.  The app displays scrollable menus with buttons for adding, editing, uploading pictures and changing Serving hours. It includes 2 modals and a sliding side panel.
     
 
 ## Technologies Used  
@@ -11,7 +11,7 @@
 - Database: [MongoDB](https://www.mongodb.com/what-is-mongodb)
 - View: [React](https://reactjs.org/)
 - CSS Framework: [Bootstrap](https://getbootstrap.com/), custom overrides
-- React Router: [react router](https://www.npmjs.com/package/react-router-dom)
+- React Router: [Express Router](https://expressjs.com/)
 - Server & API routes: [Node.js](https://nodejs.org/en/), [Express.js](https://www.npmjs.com/package/express)
 - Unit Test framework: [Jest](https://jestjs.io/)
 - Unit Test library for UI: [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
