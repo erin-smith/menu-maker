@@ -51,6 +51,8 @@ function MainCard (){
           let newCat = {id:Date.now(), name:name, items:[]}
           let updatedMenu = JSON.parse(JSON.stringify(oldMenu));
           updatedMenu.categories.push(newCat);
+          console.log("menuid",selectedMenuId);
+          console.log(updatedMenu);
           API.updateMenu(selectedMenuId, updatedMenu)
               .then(() => console.log("new category added", name))
               .catch((err) => console.log(err));
@@ -75,7 +77,7 @@ function MainCard (){
 
    function onMenuSelectChange(newMenu){
       console.log("menu selected", newMenu)
-      loadMenu(newMenu)
+      selectMenu(newMenu)
    }
 
    function onItemClick(){
