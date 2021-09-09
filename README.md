@@ -1,7 +1,7 @@
 # Menu Maker 
 
 ## Description
-  An Interactive Menu Maker Dashboard app that allows the user to view, update, edit and create menus for their restaurant.  The app displays scrollable menus with buttons for adding, editing, uploading pictures and changing Serving hours. It includes 2 modals and a sliding side panel.
+  An Interactive Menu Maker Dashboard app that allows the user to view, update, edit and create menus for their restaurant!  The app displays scrollable menus with buttons for adding, editing, uploading pictures and changing Serving hours. A user can also add new categories. The app includes 2 modals and a sliding side panel.
     
 
 ## Technologies Used  
@@ -10,7 +10,7 @@
 - Controller: [Mongoose](https://www.npmjs.com/package/mongoose)
 - Database: [MongoDB](https://www.mongodb.com/what-is-mongodb)
 - View: [React](https://reactjs.org/)
-- CSS Framework: [Bootstrap](https://getbootstrap.com/), custom overrides
+- CSS Framework: [Bootstrap, React-Bootstrap](https://getbootstrap.com/), custom overrides
 - React Router: [Express Router](https://expressjs.com/)
 - Server & API routes: [Node.js](https://nodejs.org/en/), [Express.js](https://www.npmjs.com/package/express)
 - Unit Test framework: [Jest](https://jestjs.io/)
@@ -63,17 +63,13 @@
 
 ## 🚀 Quick start
 
-- Download the file and open in VScode. From the inner aspiration file, open the terminal. 
+- Download the file and open in VScode. From the inner zsh or menu-maker file, open the terminal. 
 - `npm install`
-- `npm run seed`
-- `node server.js`
-- cd client and - `npm start`
+- `npm run seed` runs the DB seeds.
+- `node server.js` starts the server
+- cd client and - `npm start` starts the react front end
 
-Your site is now running at `http://localhost:5001` 
-    
-## Unit Test
-
-This project uses [Jest](https://jestjs.io/) as Unit Testing framework and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for React Component Testing.
+The server is now running at `http://localhost:5000`, while React runs on `http://localhost:3000`.
 
 
 ## Contributing   
