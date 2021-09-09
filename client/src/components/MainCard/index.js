@@ -13,7 +13,7 @@ function MainCard (){
   const [selectedMenuId, setSelectedMenuId] = useState();
   const [menuList, setMenuList] = useState([]);
  
-   // Load entrees and store them with menu1
+   // Load entrees and store them with menu
    useEffect(() => {
      console.log("fetching");
      API.getMenus()

@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import dessert from "../../images/dessert.png";
 import "./style.css";
 
 function CategoryModal({ showModal, setShowModal, onNewCategory}) {
-  const [formObject, setFormObject] = useState({});
+
+  const catNameTextbox = useRef()
 
   const keyPress = useCallback(
     (e) => {
@@ -21,19 +22,14 @@ function CategoryModal({ showModal, setShowModal, onNewCategory}) {
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
 
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({ ...formObject, [name]: value });
-  }
-
   function handleFormSubmit(event) {
       event.preventDefault();
-      let x = document.getElementById("category").value.trim();
+      const x = catNameTextbox.current.value.trim();
       if (x === "") {
           alert("Please enter a new category");
       }
       else{
-          onNewCategory(formObject.newCategory);
+          onNewCategory(x);
           setShow(false);
       }
   }
@@ -62,8 +58,7 @@ function CategoryModal({ showModal, setShowModal, onNewCategory}) {
              <label forhtml="category"><h5><strong>Enter Category Name:&nbsp;</strong></h5></label>
             <input
                 className="form-control"
-                onChange={handleInputChange}
-                value={formObject.categories}
+                ref={catNameTextbox}
                 name="newCategory"
                 placeholder="(e.g. Dessert)"
                 id="category"
